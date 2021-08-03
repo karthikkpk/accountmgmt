@@ -80,6 +80,11 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public void deleteAccByAccountNo(Integer accNo) throws Exception {
+
+		final Account account = accountRepository.findByAccNo(accNo);
+		if (account == null) {
+			throw new Exception("No account number to delete");
+		}
 		accountRepository.deleteByAccNo(accNo);
 	}
 

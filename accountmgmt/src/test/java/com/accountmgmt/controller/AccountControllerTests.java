@@ -138,7 +138,7 @@ public class AccountControllerTests {
 	void getAccountsError() {
 		accountController.deleteAll();
 		ResponseDto responseDto = accountController.getAccounts();
-		Assertions.assertEquals(200, responseDto.getMessage().contains("ERROR"));
+		Assertions.assertEquals(true, responseDto.getMessage().contains("ERROR"));
 	}
 
 	/**
@@ -184,6 +184,15 @@ public class AccountControllerTests {
 		accountDto.setAccType(0);
 		accountDto.setAddress("KK Nagar, Chennai");
 		accountDto.setBalanceAmount(1200.0);
+		accountDto.setOpenDate(new Date());
+		accountDto.setPhone("962973145");
+		accountDtoList.add(accountDto);
+		
+		accountDto = new AccountDto();
+		accountDto.setAccName("Kumaran T");
+		accountDto.setAccNo(1234567895);
+		accountDto.setAccType(0);
+		accountDto.setAddress("Vijay Nagar, Chennai");
 		accountDto.setOpenDate(new Date());
 		accountDto.setPhone("962973145");
 		accountDtoList.add(accountDto);
